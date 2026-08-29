@@ -1,0 +1,517 @@
+{
+  "version": 4,
+  "targets": {
+    "net48": {
+      "Fody/6.6.4": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/_._": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NLog/4.4.12": {
+        "type": "package",
+        "compile": {
+          "lib/net45/NLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/_._": {
+            "related": ".xml"
+          }
+        }
+      },
+      "PolySharp/1.16.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/PolySharp.targets": {}
+        }
+      },
+      "PropertyChanged.Fody/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.6.4"
+        },
+        "compile": {
+          "lib/net40/PropertyChanged.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/PropertyChanged.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "protobuf-net/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/ProtoBuf.Net.Core.dll": {},
+          "lib/net48/ProtoBuf.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net48/_._": {}
+        }
+      },
+      "SharpDX/4.2.0-keen-cringe": {
+        "type": "package",
+        "compile": {
+          "lib/net48/SharpDX.D3DCompiler.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.DXGI.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.Desktop.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.Direct3D11.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.DirectInput.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.XAudio2.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.XInput.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SharpDX.dll": {
+            "related": ".D3DCompiler.xml;.Desktop.xml;.Direct3D11.xml;.DirectInput.xml;.DXGI.xml;.XAudio2.xml;.XInput.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net48/_._": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SpaceEngineersDedicated.ReferenceAssemblies/1.207.22": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0-keen-cringe",
+          "protobuf-net": "1.0.0"
+        },
+        "compile": {
+          "lib/net48/HavokWrapper.dll": {},
+          "lib/net48/Sandbox.Common.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/Sandbox.Game.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/Sandbox.Graphics.dll": {},
+          "lib/net48/SpaceEngineers.Game.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/SpaceEngineers.ObjectBuilders.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Audio.dll": {},
+          "lib/net48/VRage.Dedicated.dll": {},
+          "lib/net48/VRage.EOS.dll": {},
+          "lib/net48/VRage.Game.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Input.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Library.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Math.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Mod.Io.dll": {},
+          "lib/net48/VRage.Network.dll": {},
+          "lib/net48/VRage.Platform.Windows.dll": {},
+          "lib/net48/VRage.Render.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Render11.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Scripting.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/VRage.Steam.dll": {},
+          "lib/net48/VRage.UserInterface.dll": {},
+          "lib/net48/VRage.dll": {
+            "related": ".Game.xml;.Input.xml;.Library.xml;.Math.xml;.Render.xml;.Render11.xml;.Scripting.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net48/_._": {}
+        }
+      },
+      "Torch.Server/1.3.1.325-master": {
+        "type": "package",
+        "dependencies": {
+          "NLog": "4.4.12",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/net48/Torch.API.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/Torch.Server.dll": {
+            "related": ".xml"
+          },
+          "lib/net48/Torch.dll": {
+            "related": ".API.xml;.Server.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net48/_._": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Torch.Server.ReferenceAssemblies/1.3.1.325-master": {
+        "type": "package",
+        "dependencies": {
+          "SpaceEngineersDedicated.ReferenceAssemblies": "1.207.22",
+          "Torch.Server": "1.3.1.325-master"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Fody/6.6.4": {
+      "sha512": "vLZS+oa+ndUHYPlx/8n9bBTT3dHkCF0riml4paKq4D663+cZd47x1uagQo32D/gKFZ/sfmV1oqKaLmH0elxq4A==",
+      "type": "package",
+      "path": "fody/6.6.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.6.4.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "NLog/4.4.12": {
+      "sha512": "fODew3BFT2XhAuqhGo2ZYT9OJE0ciGEBfvKXOmAAvaDsP/3ROIf083p8QUnmwKKw4jCkVW06ObX6gn/eFi2Skg==",
+      "type": "package",
+      "path": "nlog/4.4.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/NLog.dll",
+        "lib/MonoAndroid10/NLog.xml",
+        "lib/Xamarin.iOS10/NLog.dll",
+        "lib/Xamarin.iOS10/NLog.xml",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net40/NLog.dll",
+        "lib/net40/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/sl4/NLog.dll",
+        "lib/sl4/NLog.xml",
+        "lib/sl5/NLog.dll",
+        "lib/sl5/NLog.xml",
+        "lib/wp8/NLog.dll",
+        "lib/wp8/NLog.xml",
+        "nlog.4.4.12.nupkg.sha512",
+        "nlog.nuspec"
+      ]
+    },
+    "PolySharp/1.16.0": {
+      "sha512": "3kdIIceBPumwjw279FuiVMfVENT2cGASXJgcigdySsbX2dJB8ofUgG6i47yqF/k1qu6fvNR3csrSekZPviR6kQ==",
+      "type": "package",
+      "path": "polysharp/1.16.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "analyzers/dotnet/cs/PolySharp.SourceGenerators.dll",
+        "build/PolySharp.targets",
+        "buildTransitive/PolySharp.targets",
+        "icon.png",
+        "polysharp.1.16.0.nupkg.sha512",
+        "polysharp.nuspec"
+      ]
+    },
+    "PropertyChanged.Fody/4.1.0": {
+      "sha512": "6v+f9cI8YjnZH2WBHuOqWEAo8DFFNGFIdU8xD3AsL6fhV6Y8oAmVWd7XKk49t8DpeUBwhR/X+97+6Epvek0Y3A==",
+      "type": "package",
+      "path": "propertychanged.fody/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/PropertyChanged.Fody.Analyzer.dll",
+        "build/PropertyChanged.Fody.props",
+        "lib/net40/PropertyChanged.dll",
+        "lib/net40/PropertyChanged.xml",
+        "lib/netstandard2.0/PropertyChanged.dll",
+        "lib/netstandard2.0/PropertyChanged.xml",
+        "lib/netstandard2.1/PropertyChanged.dll",
+        "lib/netstandard2.1/PropertyChanged.xml",
+        "propertychanged.fody.4.1.0.nupkg.sha512",
+        "propertychanged.fody.nuspec",
+        "weaver/PropertyChanged.Fody.dll",
+        "weaver/PropertyChanged.Fody.xcf"
+      ]
+    },
+    "protobuf-net/1.0.0": {
+      "sha512": "kTGOK0E87473sOImOjgZOnz3kTC2aMLffoRWQLYNuBLJnwNNmjanF9IkevZ9Q7yYLeABQfcF3BpeepuMntMVNw==",
+      "type": "package",
+      "path": "protobuf-net/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net48/ProtoBuf.Net.Core.dll",
+        "lib/net48/ProtoBuf.Net.dll",
+        "protobuf-net.1.0.0.nupkg.sha512",
+        "protobuf-net.nuspec"
+      ]
+    },
+    "SharpDX/4.2.0-keen-cringe": {
+      "sha512": "LaJN3h1Gi1FWVdef2I5WtOH9gwzKCBniH0CragarbkN2QheYY6Lqm+91PcOfp1w/4wdVb+k8Kjv3sO393Tphtw==",
+      "type": "package",
+      "path": "sharpdx/4.2.0-keen-cringe",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net48/SharpDX.D3DCompiler.dll",
+        "lib/net48/SharpDX.D3DCompiler.xml",
+        "lib/net48/SharpDX.DXGI.dll",
+        "lib/net48/SharpDX.DXGI.xml",
+        "lib/net48/SharpDX.Desktop.dll",
+        "lib/net48/SharpDX.Desktop.xml",
+        "lib/net48/SharpDX.Direct3D11.dll",
+        "lib/net48/SharpDX.Direct3D11.xml",
+        "lib/net48/SharpDX.DirectInput.dll",
+        "lib/net48/SharpDX.DirectInput.xml",
+        "lib/net48/SharpDX.XAudio2.dll",
+        "lib/net48/SharpDX.XAudio2.xml",
+        "lib/net48/SharpDX.XInput.dll",
+        "lib/net48/SharpDX.XInput.xml",
+        "lib/net48/SharpDX.dll",
+        "lib/net48/SharpDX.xml",
+        "sharpdx.4.2.0-keen-cringe.nupkg.sha512",
+        "sharpdx.nuspec"
+      ]
+    },
+    "SpaceEngineersDedicated.ReferenceAssemblies/1.207.22": {
+      "sha512": "cEigq1fs5zm8wjVjLuldUvnLTeQTvymZbXt3eZ8mS4x6oynOpiiUvnSJnD/mxY227AVekRzrdRuk51/Z7m1sqg==",
+      "type": "package",
+      "path": "spaceengineersdedicated.referenceassemblies/1.207.22",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net48/HavokWrapper.dll",
+        "lib/net48/Sandbox.Common.dll",
+        "lib/net48/Sandbox.Common.xml",
+        "lib/net48/Sandbox.Game.dll",
+        "lib/net48/Sandbox.Game.xml",
+        "lib/net48/Sandbox.Graphics.dll",
+        "lib/net48/SpaceEngineers.Game.dll",
+        "lib/net48/SpaceEngineers.Game.xml",
+        "lib/net48/SpaceEngineers.ObjectBuilders.dll",
+        "lib/net48/SpaceEngineers.ObjectBuilders.xml",
+        "lib/net48/VRage.Audio.dll",
+        "lib/net48/VRage.Dedicated.dll",
+        "lib/net48/VRage.EOS.dll",
+        "lib/net48/VRage.Game.dll",
+        "lib/net48/VRage.Game.xml",
+        "lib/net48/VRage.Input.dll",
+        "lib/net48/VRage.Input.xml",
+        "lib/net48/VRage.Library.dll",
+        "lib/net48/VRage.Library.xml",
+        "lib/net48/VRage.Math.dll",
+        "lib/net48/VRage.Math.xml",
+        "lib/net48/VRage.Mod.Io.dll",
+        "lib/net48/VRage.Network.dll",
+        "lib/net48/VRage.Platform.Windows.dll",
+        "lib/net48/VRage.Render.dll",
+        "lib/net48/VRage.Render.xml",
+        "lib/net48/VRage.Render11.dll",
+        "lib/net48/VRage.Render11.xml",
+        "lib/net48/VRage.Scripting.dll",
+        "lib/net48/VRage.Scripting.xml",
+        "lib/net48/VRage.Steam.dll",
+        "lib/net48/VRage.UserInterface.dll",
+        "lib/net48/VRage.dll",
+        "lib/net48/VRage.xml",
+        "spaceengineersdedicated.referenceassemblies.1.207.22.nupkg.sha512",
+        "spaceengineersdedicated.referenceassemblies.nuspec"
+      ]
+    },
+    "Torch.Server/1.3.1.325-master": {
+      "sha512": "31OEHZ1VdMV9sXSIk1RVkeOEo51aL5mgJfAQ1eqwnOV2EcSAtIZgDco+Cs+ec065upU4bOMYYH+BAaWhSW7WZg==",
+      "type": "package",
+      "path": "torch.server/1.3.1.325-master",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net48/Torch.API.dll",
+        "lib/net48/Torch.API.xml",
+        "lib/net48/Torch.Server.dll",
+        "lib/net48/Torch.Server.xml",
+        "lib/net48/Torch.dll",
+        "lib/net48/Torch.xml",
+        "torch.server.1.3.1.325-master.nupkg.sha512",
+        "torch.server.nuspec"
+      ]
+    },
+    "Torch.Server.ReferenceAssemblies/1.3.1.325-master": {
+      "sha512": "iDWIsKpjtYeSFluL1Q8y/Xu0w3j9ZGi8Zum8cxqf7GJAW6atRFjJW6006ZDhGtn2HzCz5pbxsz/jlgY2kzVTKA==",
+      "type": "package",
+      "path": "torch.server.referenceassemblies/1.3.1.325-master",
+      "files": [
+        ".nupkg.metadata",
+        "torch.server.referenceassemblies.1.3.1.325-master.nupkg.sha512",
+        "torch.server.referenceassemblies.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net48": [
+      "PolySharp >= 1.*",
+      "PropertyChanged.Fody >= 4.*",
+      "Torch.Server.ReferenceAssemblies >= 1.3.*-master*"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\swat\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\swat\\Desktop\\local_repos\\EquatorBasedWeather\\BetterRandomWeather.csproj",
+      "projectName": "BetterRandomWeather",
+      "projectPath": "C:\\Users\\swat\\Desktop\\local_repos\\EquatorBasedWeather\\BetterRandomWeather.csproj",
+      "packagesPath": "C:\\Users\\swat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\swat\\Desktop\\local_repos\\EquatorBasedWeather\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\swat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.storage.yandexcloud.net/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "framework": "net48",
+          "targetAlias": "net48",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreLockProperties": {
+        "restorePackagesWithLockFile": "true"
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "10.0.400"
+    },
+    "frameworks": {
+      "net48": {
+        "framework": "net48",
+        "targetAlias": "net48",
+        "dependencies": {
+          "PolySharp": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.*, )"
+          },
+          "PropertyChanged.Fody": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[4.*, )"
+          },
+          "Torch.Server.ReferenceAssemblies": {
+            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "target": "Package",
+            "version": "[1.3.*-master*, )"
+          }
+        },
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\10.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
