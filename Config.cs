@@ -19,21 +19,5 @@ namespace BetterRandomWeather
             get => _debug;
             set => SetValue(ref _debug, value);
         }
-
-        private int _minWeatherDuration = 600;
-        [Display(Order = 2, Name = "Minimum weather duration", Description = "Set the minimum time a piece of weather will last")]
-        public int minWeatherDuration
-        {
-            get => _minWeatherDuration;
-            set => SetValue(ref _minWeatherDuration, value);
-        }
-
-        private int _maxWeatherDuration = 900;
-        [Display(Order = 2, Name = "Maximum weather duration", Description = "Set the maximum time a piece of weather will last")]
-        public int maxWeatherDuration
-        {
-            get => _maxWeatherDuration;
-            set => SetValue(ref _maxWeatherDuration, value);
-        }
     }
 }
