@@ -238,14 +238,20 @@ namespace BetterRandomWeather.patches
 
                         int spawnOffset = 1000;
                         int intensity = 1; //value between 1-2
+                        int duration = random.Next(weather.minDuration, weather.maxDuration);
+
+
+                        bool hasExistingWeatherNearbyFront = __instance.GetWeather(worldPosition - randomPerpendicularVector * ((float)spawnOffset + atmosOffset), out var _);
+                        bool hasExistingWeatherNearbyBack = __instance.GetWeather(worldPosition + randomPerpendicularVector * ((float)spawnOffset + atmosOffset), out var _);
+                        worldPosition -= randomPerpendicularVector * ((float)spawnOffset + atmosOffset);
 
                         __instance.SetWeather(
                             weather.name,
                             atmosOffset,
                             worldPosition,
                             null,
-                            randomPerpendicularVector * (2f * ((float)spawnOffset + atmosOffset) / intensity),
-                            random.Next(weather.minDuration, weather.maxDuration)
+                            randomPerpendicularVector * (2f * ((float)spawnOffset + atmosOffset) / duration),
+                            duration
                         );
                     }
                     #region old logic
@@ -312,7 +318,7 @@ namespace BetterRandomWeather.patches
         }
         #endregion
 
-        //#region UpdatePlanetDataServer
+        #region UpdatePlanetDataServer
         //[ReflectedMethodInfo(typeof(MySectorWeatherComponent), "UpdatePlanetDataServer")]
         //private static readonly MethodInfo UpdatePlanetDataServer;
 
@@ -323,16 +329,16 @@ namespace BetterRandomWeather.patches
         //{
         //    foreach (MyObjectBuilder_WeatherPlanetData weatherPlanetDatum in __instance.GetWeatherPlanetData())
         //    {
-        //        if (weatherPlanetDatum.NextWeather > 75)
+        //        if (weatherPlanetDatum.NextWeather > 600)
         //        {
-        //            weatherPlanetDatum.NextWeather = 75;
+        //            weatherPlanetDatum.NextWeather = 600;
         //        }
         //    }
 
         //    return true;
         //}
 
-        //#endregion
+        #endregion
 
         public static void Patch(PatchContext context)
         {
