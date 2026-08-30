@@ -19,5 +19,13 @@ namespace BetterRandomWeather
             get => _debug;
             set => SetValue(ref _debug, value);
         }
+
+        private bool _reset = false;
+        [Display(Order = 1, Name = "Reset", Description = "Resets weather timer")]
+        public bool Reset
+        {
+            get => _reset;
+            set => SetValue(ref _reset, value);
+        }
     }
 }

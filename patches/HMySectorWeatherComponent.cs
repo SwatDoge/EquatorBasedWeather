@@ -6,6 +6,7 @@ using Sandbox.Game.Multiplayer;
 using Sandbox.Game.SessionComponents;
 using Sandbox.Game.World;
 using System.Reflection;
+using System.Windows;
 using Torch;
 using Torch.Managers.PatchManager;
 using Torch.Utils;
@@ -169,6 +170,19 @@ namespace BetterRandomWeather.patches
                 List<int> list = new List<int>();
                 for (int i = 0; i < planet.Generator.WeatherGenerators[0].Weathers.Count; i++)
                 {
+                    if (Plugin.Config.Debug)
+                    {
+                        foreach (MyWeatherGeneratorVoxelSettings item in planet.Generator.WeatherGenerators[0].Weathers)
+                        {
+                            Plugin.Log.Info("=========");
+                            Plugin.Log.Info(item.Name);
+                            Plugin.Log.Info(item.MaxLength);
+                            Plugin.Log.Info(item.MinLength);
+                            Plugin.Log.Info(item.SpawnOffset);
+                            Plugin.Log.Info(item.Weight);
+                        }
+                    }
+
                     for (int j = 0; j < planet.Generator.WeatherGenerators[0].Weathers[i].Weight; j++)
                     {
                         list.Add(i);
@@ -288,6 +302,16 @@ namespace BetterRandomWeather.patches
                                 if (!hasExistingWeatherNearbyFront && !hasExistingWeatherNearbyBack)
                                 {
                                     worldPosition -= randomPerpendicularVector * ((float)spawnOffset + atmosOffset);
+
+                                    if (Plugin.Config.Debug)
+                                    {
+                                        Plugin.Log.Info("Weather name " + weatherGenerator.Weathers[weatherIndexes[randomWeatherIndex]].Name);
+                                        Plugin.Log.Info("atmosOffset " + atmosOffset);
+                                        Plugin.Log.Info("worldPosition " + worldPosition);
+                                        Plugin.Log.Info("velocity " + randomPerpendicularVector * (2f * ((float)spawnOffset + atmosOffset) / (float)randomWeatherWeight));
+                                        Plugin.Log.Info("duration" + randomWeatherWeight);
+                                    }
+
                                     __instance.SetWeather(
                                         weatherGenerator.Weathers[weatherIndexes[randomWeatherIndex]].Name,
                                         atmosOffset,
@@ -319,24 +343,26 @@ namespace BetterRandomWeather.patches
         #endregion
 
         #region UpdatePlanetDataServer
-        //[ReflectedMethodInfo(typeof(MySectorWeatherComponent), "UpdatePlanetDataServer")]
-        //private static readonly MethodInfo UpdatePlanetDataServer;
+        [ReflectedMethodInfo(typeof(MySectorWeatherComponent), "UpdatePlanetDataServer")]
+        private static readonly MethodInfo UpdatePlanetDataServer;
 
-        //[ReflectedMethodInfo(typeof(HMySectorWeatherComponent), "PrefixUpdatePlanetDataServer")]
-        //private static readonly MethodInfo HUpdatePlanetDataServer;
+        [ReflectedMethodInfo(typeof(HMySectorWeatherComponent), "PrefixUpdatePlanetDataServer")]
+        private static readonly MethodInfo HUpdatePlanetDataServer;
 
-        //public static bool PrefixUpdatePlanetDataServer(MySectorWeatherComponent __instance)
-        //{
-        //    foreach (MyObjectBuilder_WeatherPlanetData weatherPlanetDatum in __instance.GetWeatherPlanetData())
-        //    {
-        //        if (weatherPlanetDatum.NextWeather > 600)
-        //        {
-        //            weatherPlanetDatum.NextWeather = 600;
-        //        }
-        //    }
+        public static bool PrefixUpdatePlanetDataServer(MySectorWeatherComponent __instance)
+        {
+            if (Plugin.Config.Reset)
+            {
+                foreach (MyObjectBuilder_WeatherPlanetData weatherPlanetDatum in __instance.GetWeatherPlanetData())
+                {
+                    weatherPlanetDatum.NextWeather = 50;
+                    Plugin.Log.Info("Reset weather timer to 50");
+                }
+            }
 
-        //    return true;
-        //}
+
+            return true;
+        }
 
         #endregion
 
@@ -347,10 +373,10 @@ namespace BetterRandomWeather.patches
                 .Prefixes
                 .Add(HCreateRandomWeather);
 
-            //context
-            //    .GetPattern(UpdatePlanetDataServer)
-            //    .Prefixes
-            //    .Add(HUpdatePlanetDataServer);
+            context
+                .GetPattern(UpdatePlanetDataServer)
+                .Prefixes
+                .Add(HUpdatePlanetDataServer);
 
             Plugin.Log.Info("Patched MySectorWeatherComponent");
         }
