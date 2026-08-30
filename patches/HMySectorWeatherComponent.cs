@@ -241,6 +241,11 @@ namespace BetterRandomWeather.patches
                         Vector3D playerVector = Vector3D.Normalize(onlinePlayer.GetPosition() - planet.PositionComp.GetPosition());
                         Vector3D planetUp = planet.WorldMatrix.Up;
 
+                        if (Plugin.Config.Debug)
+                        {
+                            Plugin.Log.Info(planet.Generator.WeatherFrequencyMin + " " + planet.Generator.WeatherFrequencyMax);
+                        }
+
                         double poleRatio = Math.Abs(Vector3D.Dot(playerVector, planetUp));
 
                         CustomWeather weather = CustomWeather.getRandomWeightedWeather(customWeatherList, (float)poleRatio);
